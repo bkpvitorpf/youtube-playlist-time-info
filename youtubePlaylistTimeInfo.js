@@ -29,9 +29,9 @@ const formatTime  = (hours,minutes,seconds) => {
 
   const totalHours = hours + hoursFromMinutes
 
-  const finalHours = totalHours
-  const finalMinutes = Math.floor(totalMinutes % 60);
-  const finalSeconds = Math.floor(seconds % 60)
+  const finalHours = String(totalHours).padStart(2,'0')
+  const finalMinutes = String(Math.floor(totalMinutes % 60)).padStart(2,'0')
+  const finalSeconds = String(Math.floor(seconds % 60)).padStart(2,'0') 
 
   return [finalHours,finalMinutes,finalSeconds]
 }
@@ -104,13 +104,13 @@ const getPlaylistTimeInfo = () =>{
 
   //Creating div element to show time info
   const divElement = document.createElement('div')
-  const styleConfigString = "font-family: 'Roboto','Arial',sans-serif; font-size: 1.6rem; color: var(--yt-spec-text-primary); font-weight: 400;"
+  const styleConfigString = "font-family: 'Roboto','Arial',sans-serif; font-size: 1.6rem; color: var(--yt-spec-text-secondary); font-weight: 400; line-height: 2rem;"
 
   divElement.className = "playlist-time-info"
   divElement.style.display = 'flex'
   divElement.style.flexDirection = 'column'
-  divElement.style.marginTop= '1rem'
-  divElement.style.marginBottom= '1rem'
+  divElement.style.marginTop= '1.5rem'
+  divElement.style.marginBottom= '1.5rem'
   divElement.innerHTML = `
     <span style="${styleConfigString}">
       Playlist Total Time: ${hours}:${minutes}:${seconds}
