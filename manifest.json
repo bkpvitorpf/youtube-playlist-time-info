@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "Youtube Playlist Time Info",
+  "description": "Extensão Hello World - iMasters",
+  "author": "Vitor Pereira Fontes",
+  "homepage_url":  "https://github.com/vitor0p9f/youtube-playlist-time-info",
+  "content_scripts": [
+		{
+			"matches": ["*://*.youtube.com/playlist*"],
+    	"js": ["youtubePlaylistTimeInfo.js"],
+      "run_at": "document_end"
+		}
+	]
+}
