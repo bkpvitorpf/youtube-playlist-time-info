@@ -1,20 +1,3 @@
-let lastSiteUrl = '';
-
-if(window.location.href.includes('playlist?list=')){
-  getPlaylistTimeInfo()
-}
-
-// Detecting url changes on SPA and reload extension
-new MutationObserver(() => {
-  const url = location.href;
-
-  if (url !== lastSiteUrl) {
-    lastSiteUrl = url;
-
-    getPlaylistTimeInfo()
-  }
-}).observe(document, {subtree: true, childList: true});
-
 // Functions
 const convertToSeconds = (value,timeFormat) => {
   const allowedFormats = {
@@ -147,3 +130,20 @@ const getPlaylistTimeInfo = () =>{
     playlistLeftAsideElement.appendChild(divElement)
   },2500) 
 }
+
+let lastSiteUrl = '';
+
+if(window.location.href.includes('playlist?list=')){
+  getPlaylistTimeInfo()
+}
+
+// Detecting url changes on SPA and reload extension
+new MutationObserver(() => {
+  const url = location.href;
+
+  if (url !== lastSiteUrl) {
+    lastSiteUrl = url;
+
+    getPlaylistTimeInfo()
+  }
+}).observe(document, {subtree: true, childList: true});
