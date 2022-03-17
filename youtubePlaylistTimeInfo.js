@@ -103,7 +103,7 @@ const getPlaylistTimeInfo = () =>{
 
     const [unwatchedHours,unwatchedMinutes,unwatchedSeconds] = formatTime(playlistUnwatchedHours,playlistUnwatchedMinutes,playlistUnwatchedSeconds)
 
-    //Creating div element to show time info
+    //Creating div element and spans to show time info
     const divElement = document.createElement('div')
     const styleConfigString = "font-family: 'Roboto','Arial',sans-serif; font-size: 1.6rem; color: var(--yt-spec-text-secondary); font-weight: 400; line-height: 2rem;"
 
@@ -112,17 +112,22 @@ const getPlaylistTimeInfo = () =>{
     divElement.style.flexDirection = 'column'
     divElement.style.marginTop= '1.5rem'
     divElement.style.marginBottom= '1.5rem'
-    divElement.innerHTML = `
-      <span style="${styleConfigString}">
-        Playlist Total Time: ${hours}:${minutes}:${seconds}
-      </span>
-      <span style="${styleConfigString}">
-        Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}
-      </span>
-      <span style="${styleConfigString}">
-        Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}
-      </span>
-    `
+
+    const totalPlaylistTimeSpan = document.createElement('span');
+    totalPlaylistTimeSpan.style = styleConfigString;
+    totalPlaylistTimeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
+
+    const playlistWatchedTimeSpan = document.createElement('span');
+    playlistWatchedTimeSpan.style = styleConfigString;
+    playlistWatchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
+
+    const playlistUnwatchedTimeSpan = document.createElement('span');
+    playlistUnwatchedTimeSpan.style = styleConfigString;
+    playlistUnwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
+    
+    divElement.appendChild(totalPlaylistTimeSpan)
+    divElement.appendChild(playlistWatchedTimeSpan)
+    divElement.appendChild(playlistUnwatchedTimeSpan)
 
     // Displaying new time values
     const playlistLeftAsideElement = document.querySelector('.style-scope ytd-playlist-sidebar-primary-info-renderer')

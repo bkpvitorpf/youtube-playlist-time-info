@@ -2,13 +2,14 @@
 
 <p>A WEB extension that show you the time stats of your YouTube playlists! Relax, we don't need your credentials.</p>
 
-<div style="width: 100%;display: flex; justify-content:space-evenly;">
-
-  ![GitHub](https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=blue&style=plastic)
-
-  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/vitor0p9f/youtube-playlist-time-info?style=plastic)
-
-</div>
+<p align="center">
+  <a href="LICENSE.md" target="_blank">
+    <img src="https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=blue&style=plastic" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/github/languages/code-size/vitor0p9f/youtube-playlist-time-info?style=plastic" />
+  </a>
+</p>
 
 <hr>
 
