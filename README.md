@@ -11,32 +11,40 @@
   </a>
 </p>
 
-<hr>
+<img src="extension-example.jpg"/>
 
-## How to install
+<br>
 
-Unfortunately, this extension isn't in browser's stores yet, but, one day it'll be.
-
-However, to install this extension just clone the repo in your machine, and follow the steps below.
-
-```shell
-  git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
-```
-
-### Chrome | Vivaldi | Opera | Edge
+# How to install
+### Chrome | Vivaldi | Edge
 
 <hr>
 
-  1. Access browser extension's page: <a href='chrome://extensions'>Chrome</a> , <a href='vivaldi://extensions'>Vivaldi</a> , <a href='opera://extensions'>Opera</a> , <a href='edge://extensions'>Edge</a>
-  2. Enable developer mod
-  3. Click on Load unpacked
-  4. Select the repository folder
+  Unfortunately, this extension isn't in browser's stores yet, but, one day it'll be.In the meantime, it can be tested using developer mode.
+
+  <br>
+
+  1. Clone the repository
+  ```shell
+    git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
+  ```
+  2. Access browser extension's page: <a href='chrome://extensions'>Chrome</a>, <a href='vivaldi://extensions'>Vivaldi</a>, <a href='edge://extensions'>Edge</a>
+  3. Enable developer mod
+  4. Click on Load unpacked
+  5. Select the repository folder
+   
+<br>
 
 ### Firefox
 
 <hr>
 
-  1. Access <a href="about:debugging#/runtime/this-firefox">extension's page</a>
-  2. Open Temporary Extensions dropdown
-  3. Click on Load Temporary Add-on 
-  4. Select the manifest.json of repository folder
+  1. Access <a href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/">add-ons page</a>
+
+<br>
+  
+### Opera
+  
+<hr>
+
+  1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/">addons page</a>  
