@@ -1,15 +1,20 @@
 {
   "manifest_version": 2,
   "version": "0.0.1",
-  "name": "Youtube Playlist Time Info",
-  "description": "Extensão Hello World - iMasters",
+  "name": "YouTube Playlist Time Info",
+  "description": "A WEB extension that show you the time stats of your YouTube playlists! Relax, we don't need your credentials.",
   "author": "Vitor Pereira Fontes",
   "homepage_url":  "https://github.com/vitor0p9f/youtube-playlist-time-info",
   "content_scripts": [
 		{
-			"matches": ["*://*.youtube.com/playlist*"],
+			"matches": ["*://*.youtube.com/*"],
     	"js": ["youtubePlaylistTimeInfo.js"],
       "run_at": "document_end"
 		}
-	]
+	],
+  "icons":{
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
