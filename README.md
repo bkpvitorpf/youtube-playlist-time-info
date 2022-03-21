@@ -28,7 +28,7 @@
   ```shell
     git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
   ```
-  2. Access browser extension's page: <a href='https://chrome://extensions'>Chrome</a>, <a href='https://vivaldi://extensions'>Vivaldi</a>, <a href='https://edge://extensions'>Edge</a>
+  2. Access browser extension's page: <a href="chrome://extensions" target="_blank">Chrome</a>, <a href="vivaldi://extensions" target="_blank">Vivaldi</a>, <a href="edge://extensions" target="_blank">Edge</a>
   3. Enable developer mod
   4. Click on Load unpacked
   5. Select the repository folder
@@ -39,7 +39,7 @@
 
 <hr>
 
-  1. Access <a href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/">add-ons page</a>
+  1. Access <a href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/" target="_blank">add-ons page</a>
 
 <br>
   
@@ -47,4 +47,4 @@
   
 <hr>
 
-  1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/">addons page</a>  
+  1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/" target="_blank">addons page</a>  
