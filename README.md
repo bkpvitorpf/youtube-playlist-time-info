@@ -39,7 +39,7 @@
 
 <hr>
 
-  1. Access <a href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/" target="_blank">add-ons page</a>
+  1. Access <a href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/">add-ons page</a>
 
 <br>
   
@@ -47,4 +47,4 @@
   
 <hr>
 
-  1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/" target="_blank">addons page</a>  
+  1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/">addons page</a>  
