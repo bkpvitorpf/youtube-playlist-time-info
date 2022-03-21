@@ -28,7 +28,7 @@
   ```shell
     git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
   ```
-  2. Access browser extension's page: <a href='chrome://extensions'>Chrome</a>, <a href='vivaldi://extensions'>Vivaldi</a>, <a href='edge://extensions'>Edge</a>
+  2. Access browser extension's page: <a href='https://chrome://extensions'>Chrome</a>, <a href='https://vivaldi://extensions'>Vivaldi</a>, <a href='https://edge://extensions'>Edge</a>
   3. Enable developer mod
   4. Click on Load unpacked
   5. Select the repository folder
