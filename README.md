@@ -16,7 +16,7 @@
 <br>
 
 # How to install
-### Chrome | Vivaldi | Edge
+### Chrome | Vivaldi
 
 <hr>
 
@@ -28,7 +28,7 @@
   ```shell
     git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
   ```
-  2. Access browser extension's page: <a href='chrome://extensions'>Chrome</a>, <a href='vivaldi://extensions'>Vivaldi</a>, <a href='edge://extensions'>Edge</a>
+  2. Access browser extension's page
   3. Enable developer mod
   4. Click on Load unpacked
   5. Select the repository folder
@@ -48,3 +48,11 @@
 <hr>
 
   1. Access <a href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/">addons page</a>  
+
+<br>
+
+### Microsoft Edge
+  
+<hr>
+
+  1. Access <a href="https://microsoftedge.microsoft.com/addons/detail/youtube-playlist-time-inf/ndillecpkaamieconfpcilmipnigaoja">addons page</a>
