@@ -143,4 +143,4 @@ setTimeout(()=>{
   new MutationObserver(() => {
     getPlaylistTimeInfo()
   }).observe(document.querySelector('.style-scope ytd-section-list-renderer'), {subtree: true, childList: true});
-},2500)
+},3000)
