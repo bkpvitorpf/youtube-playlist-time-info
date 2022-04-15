@@ -15,6 +15,11 @@
 
 <br>
 
+# What's new
+* <b>Bug fix:</b> The extension keeps working when there are lives or premieres in playlist.
+
+<br>
+
 # How to install
 ### Chrome | Vivaldi
 

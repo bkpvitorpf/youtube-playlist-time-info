@@ -37,21 +37,21 @@ const formatTime  = (hours,minutes,seconds) => {
 }
 
 const getPlaylistTimeInfo = () =>{
-  setTimeout(()=>{
-    // Removing previous playlistTimeInfo
-    const playlistTimeInfoElements = document.querySelectorAll('.playlist-time-info')
+  // Removing previous playlistTimeInfo
+  const playlistTimeInfoElements = document.querySelectorAll('.playlist-time-info')
 
-    playlistTimeInfoElements.forEach(playlistTimeInfoDiv => playlistTimeInfoDiv.remove())
+  playlistTimeInfoElements.forEach(playlistTimeInfoDiv => playlistTimeInfoDiv.remove())
 
-    // Getting videos info
-    const allPlaylistVideos= document.querySelectorAll('.style-scope ytd-playlist-video-renderer')
+  // Getting videos info
+  const allPlaylistVideos= document.querySelectorAll('.style-scope ytd-playlist-video-renderer')
 
-    let playlistHours = playlistMinutes = playlistSeconds = playlistWatchedHours = playlistWatchedMinutes = playlistWatchedSeconds = playlistUnwatchedHours = playlistUnwatchedMinutes = playlistUnwatchedSeconds =0
+  let playlistHours = playlistMinutes = playlistSeconds = playlistWatchedHours = playlistWatchedMinutes = playlistWatchedSeconds = playlistUnwatchedHours = playlistUnwatchedMinutes = playlistUnwatchedSeconds =0
 
-    allPlaylistVideos.forEach(video =>{
-      let videoProgressValue = videoHours = videoMinutes = videoSeconds = unwatchedTimeInSeconds = unwatchedVideoHours = unwatchedVideoMinutes = unwatchedVideoSeconds = 0
+  allPlaylistVideos.forEach(video =>{
+    let videoProgressValue = videoHours = videoMinutes = videoSeconds = unwatchedTimeInSeconds = unwatchedVideoHours = unwatchedVideoMinutes = unwatchedVideoSeconds = 0
 
-      //Get video time
+    //Get video time
+    if(video.querySelector('#text').innerHTML.includes(':')){
       const videoTimeParts = video.querySelector('#text').innerHTML.split(':')
 
       if(videoTimeParts.length > 2){
@@ -94,61 +94,53 @@ const getPlaylistTimeInfo = () =>{
       playlistUnwatchedHours += unwatchedHours
       playlistUnwatchedMinutes += unwatchedMinutes
       playlistUnwatchedSeconds += unwatchedSeconds
-    })
+    }
+  })
 
-    // Formatting time values
-    const [hours,minutes,seconds] = formatTime(playlistHours,playlistMinutes,playlistSeconds)
+  // Formatting time values
+  const [hours,minutes,seconds] = formatTime(playlistHours,playlistMinutes,playlistSeconds)
 
-    const [watchedHours,watchedMinutes,watchedSeconds] = formatTime(playlistWatchedHours,playlistWatchedMinutes,playlistWatchedSeconds)
+  const [watchedHours,watchedMinutes,watchedSeconds] = formatTime(playlistWatchedHours,playlistWatchedMinutes,playlistWatchedSeconds)
 
-    const [unwatchedHours,unwatchedMinutes,unwatchedSeconds] = formatTime(playlistUnwatchedHours,playlistUnwatchedMinutes,playlistUnwatchedSeconds)
+  const [unwatchedHours,unwatchedMinutes,unwatchedSeconds] = formatTime(playlistUnwatchedHours,playlistUnwatchedMinutes,playlistUnwatchedSeconds)
 
-    //Creating div element and spans to show time info
-    const divElement = document.createElement('div')
-    const styleConfigString = "font-family: 'Roboto','Arial',sans-serif; font-size: 1.6rem; color: var(--yt-spec-text-secondary); font-weight: 400; line-height: 2rem;"
+  //Creating div element and spans to show time info
+  const divElement = document.createElement('div')
+  const styleConfigString = "font-family: 'Roboto','Arial',sans-serif; font-size: 1.6rem; color: var(--yt-spec-text-secondary); font-weight: 400; line-height: 2rem;"
 
-    divElement.className = "playlist-time-info"
-    divElement.style.display = 'flex'
-    divElement.style.flexDirection = 'column'
-    divElement.style.marginTop= '1.5rem'
-    divElement.style.marginBottom= '1.5rem'
+  divElement.className = "playlist-time-info"
+  divElement.style.display = 'flex'
+  divElement.style.flexDirection = 'column'
+  divElement.style.marginTop= '1.5rem'
+  divElement.style.marginBottom= '1.5rem'
 
-    const totalPlaylistTimeSpan = document.createElement('span');
-    totalPlaylistTimeSpan.style = styleConfigString;
-    totalPlaylistTimeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
+  const totalPlaylistTimeSpan = document.createElement('span');
+  totalPlaylistTimeSpan.style = styleConfigString;
+  totalPlaylistTimeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
 
-    const playlistWatchedTimeSpan = document.createElement('span');
-    playlistWatchedTimeSpan.style = styleConfigString;
-    playlistWatchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
+  const playlistWatchedTimeSpan = document.createElement('span');
+  playlistWatchedTimeSpan.style = styleConfigString;
+  playlistWatchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
 
-    const playlistUnwatchedTimeSpan = document.createElement('span');
-    playlistUnwatchedTimeSpan.style = styleConfigString;
-    playlistUnwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
-    
-    divElement.appendChild(totalPlaylistTimeSpan)
-    divElement.appendChild(playlistWatchedTimeSpan)
-    divElement.appendChild(playlistUnwatchedTimeSpan)
+  const playlistUnwatchedTimeSpan = document.createElement('span');
+  playlistUnwatchedTimeSpan.style = styleConfigString;
+  playlistUnwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
+  
+  divElement.appendChild(totalPlaylistTimeSpan)
+  divElement.appendChild(playlistWatchedTimeSpan)
+  divElement.appendChild(playlistUnwatchedTimeSpan)
 
-    // Displaying new time values
-    const playlistLeftAsideElement = document.querySelector('.style-scope ytd-playlist-sidebar-primary-info-renderer')
+  // Displaying new time values
+  const playlistLeftAsideElement = document.querySelector('.style-scope ytd-playlist-sidebar-primary-info-renderer')
 
-    playlistLeftAsideElement.appendChild(divElement)
-  },2500) 
+  playlistLeftAsideElement.appendChild(divElement)
 }
 
-let lastSiteUrl = '';
-
-if(window.location.href.includes('playlist?list=')){
+setTimeout(()=>{
   getPlaylistTimeInfo()
-}
 
-// Detecting url changes on SPA and reload extension
-new MutationObserver(() => {
-  const url = location.href;
-
-  if (url !== lastSiteUrl) {
-    lastSiteUrl = url;
-
+  //Observing changes on playlist videos
+  new MutationObserver(() => {
     getPlaylistTimeInfo()
-  }
-}).observe(document, {subtree: true, childList: true});
+  }).observe(document.querySelector('.style-scope ytd-section-list-renderer'), {subtree: true, childList: true});
+},2500)
