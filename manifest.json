@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "version": "0.0.2",
   "name": "YouTube Playlist Time Info",
   "description": "A WEB extension that show you the time stats of your YouTube playlists! Relax, we don't need your credentials.",
