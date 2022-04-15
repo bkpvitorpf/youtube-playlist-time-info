@@ -16,7 +16,7 @@
 <br>
 
 # What's new
-* <b>Bug fix:</b> The extension keep working when there are lives or premieres in playlist.
+* <b>Bug fix:</b> The extension keeps working when there are lives or premieres in playlist.
 
 <br>
 
