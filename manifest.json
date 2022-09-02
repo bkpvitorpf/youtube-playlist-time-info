@@ -7,7 +7,7 @@
   "homepage_url":  "https://github.com/vitor0p9f/youtube-playlist-time-info",
   "content_scripts": [
 		{
-			"matches": ["*://*.youtube.com/*"],
+			"matches": ["*://*.youtube.com/playlist*","*://*.youtube.com/*"],
     	"js": ["youtubePlaylistTimeInfo.js"],
       "run_at": "document_end"
 		}
