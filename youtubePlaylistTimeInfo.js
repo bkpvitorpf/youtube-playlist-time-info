@@ -37,22 +37,29 @@ const formatTime  = (hours,minutes,seconds) => {
 }
 
 const getPlaylistTimeInfo = () =>{
-  // Removing previous playlistTimeInfo
+  let allPlaylistVideos
+
+  // Removing previous playlistTimeInfo div element
   const playlistTimeInfoElements = document.querySelectorAll('.playlist-time-info')
 
   playlistTimeInfoElements.forEach(playlistTimeInfoDiv => playlistTimeInfoDiv.remove())
 
   // Getting videos info
-  const allPlaylistVideos= document.querySelectorAll('.style-scope ytd-playlist-video-renderer')
+  if(window.location.href.includes('playlist')){
+    //Getting playlist videos on playlist page
+    allPlaylistVideos= document.querySelectorAll('ytd-playlist-video-renderer')
+  }else{
+    //Getting playlist videos of panel on display screen when user is watching playlist video
+    allPlaylistVideos= document.querySelectorAll('ytd-playlist-panel-video-renderer')
+  }
 
   let playlistHours = playlistMinutes = playlistSeconds = playlistWatchedHours = playlistWatchedMinutes = playlistWatchedSeconds = playlistUnwatchedHours = playlistUnwatchedMinutes = playlistUnwatchedSeconds =0
 
   allPlaylistVideos.forEach(video =>{
     let videoProgressValue = videoHours = videoMinutes = videoSeconds = unwatchedTimeInSeconds = unwatchedVideoHours = unwatchedVideoMinutes = unwatchedVideoSeconds = 0
 
-    //Get video time
-    if(video.querySelector('#text').innerHTML.includes(':')){
-      const videoTimeParts = video.querySelector('#text').innerHTML.split(':')
+    if(video.querySelector('span#text') && video.querySelector('span#text').innerHTML.includes(':')){
+      const videoTimeParts = video.querySelector('span#text').innerHTML.split(':')
 
       if(videoTimeParts.length > 2){
         videoHours = Number(videoTimeParts[0])
@@ -73,11 +80,14 @@ const getPlaylistTimeInfo = () =>{
         videoProgressValue = styleString.replace('width: ','').replace('%;','')
       }
 
+      //Converting all the time to seconds
       const totalVideoTimeInSeconds = convertToSeconds(videoHours,'hour') + convertToSeconds(videoMinutes,'minute') + videoSeconds
 
+      //Calculating watched and unwatched time from video progress bar percentage 
       const watchedVideoTimeInSeconds = totalVideoTimeInSeconds * (videoProgressValue/100)
       const unwatchedVideoTimeInSeconds = totalVideoTimeInSeconds - watchedVideoTimeInSeconds
 
+      //Converting the values to hours:minutes:seconds format
       const [watchedHours, watchedMinutes, watchedSeconds] = formatSecondsToHoursMinutesAndSeconds(watchedVideoTimeInSeconds)
 
       const [unwatchedHours, unwatchedMinutes, unwatchedSeconds] = formatSecondsToHoursMinutesAndSeconds(unwatchedVideoTimeInSeconds)
@@ -114,16 +124,16 @@ const getPlaylistTimeInfo = () =>{
   divElement.style.marginTop= '1.5rem'
   divElement.style.marginBottom= '1.5rem'
 
-  const totalPlaylistTimeSpan = document.createElement('span');
-  totalPlaylistTimeSpan.style = styleConfigString;
+  const totalPlaylistTimeSpan = document.createElement('span')
+  totalPlaylistTimeSpan.style = styleConfigString
   totalPlaylistTimeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
 
-  const playlistWatchedTimeSpan = document.createElement('span');
-  playlistWatchedTimeSpan.style = styleConfigString;
+  const playlistWatchedTimeSpan = document.createElement('span')
+  playlistWatchedTimeSpan.style = styleConfigString
   playlistWatchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
 
-  const playlistUnwatchedTimeSpan = document.createElement('span');
-  playlistUnwatchedTimeSpan.style = styleConfigString;
+  const playlistUnwatchedTimeSpan = document.createElement('span')
+  playlistUnwatchedTimeSpan.style = styleConfigString
   playlistUnwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
   
   divElement.appendChild(totalPlaylistTimeSpan)
@@ -131,16 +141,27 @@ const getPlaylistTimeInfo = () =>{
   divElement.appendChild(playlistUnwatchedTimeSpan)
 
   // Displaying new time values
-  const playlistLeftAsideElement = document.querySelector('.style-scope ytd-playlist-sidebar-primary-info-renderer')
 
-  playlistLeftAsideElement.appendChild(divElement)
+  if(window.location.href.includes('playlist')){
+    const playlistLeftAsideElement = document.querySelector('.style-scope ytd-playlist-sidebar-primary-info-renderer')
+
+    playlistLeftAsideElement.appendChild(divElement)
+  }else{
+    const playlistRightAsideElement = document.querySelectorAll('#header-description')
+
+    playlistRightAsideElement[1].appendChild(divElement)
+  }
 }
 
+//Making the extension work
 setTimeout(()=>{
   getPlaylistTimeInfo()
 
-  //Observing changes on playlist videos
+  //Watching playlist changes or if the user switches playlists
   new MutationObserver(() => {
     getPlaylistTimeInfo()
-  }).observe(document.querySelector('.style-scope ytd-section-list-renderer'), {subtree: true, childList: true});
-},2500)
+  }).observe(window.location.href.includes('playlist')?
+  document.querySelector('.style-scope ytd-section-list-renderer') :
+  document.querySelectorAll('div#items')[3],
+  {subtree: true, childList: true})
+},window.location.href.includes('playlist')?2500:4500)
