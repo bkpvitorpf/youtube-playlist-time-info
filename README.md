@@ -52,55 +52,17 @@ If the extension doesn't work once any of the playlist tabs are open, refresh th
 # What's new
 
 * <b>Feature:</b> The extension works while viewing a playlist video.
+* <b>Update:</b> The extension is now available on the Chrome Web Store and on the Microsoft Edge Add-ons page.
 
 # How to install
 
   
 
-### Chrome | Vivaldi | Edge
-
-  
+### Chrome | Vivaldi
 
 <hr>
 
-  
-
-Unfortunately, this extension isn't in browser's stores yet, but, one day it'll be.In the meantime, it can be tested using developer mode.
-
-  
-  
-
-1. Clone the repository
-
-  
-
-```shell
-
-  
-
-git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
-
-  
-
-```
-
-  
-
-2. Access browser extension's page: <a  href='chrome://extensions'>Chrome</a>, <a  href='vivaldi://extensions'>Vivaldi</a>, <a  href='edge://extensions'>Edge</a>
-
-  
-
-3. Enable developer mod
-
-  
-
-4. Click on Load unpacked
-
-  
-
-5. Select the repository folder
-
-  
+1. Access <a  href="https://chrome.google.com/webstore/detail/youtube-playlist-time-inf/baiijeboainjcealpenohoogjkplopmh">Chrome Web Store page</a>
 
 ### Firefox
 
@@ -113,3 +75,7 @@ git clone https://github.com/vitor0p9f/youtube-playlist-time-info.git
 <hr>
 
 1. Access <a  href="https://addons.opera.com/en/extensions/details/youtube-playlist-time-info/">addons page</a>
+
+### Microsoft Edge
+<hr>
+1. Access <a  href="https://microsoftedge.microsoft.com/addons/detail/youtube-playlist-time-inf/ndillecpkaamieconfpcilmipnigaoja">add-ons page</a>
