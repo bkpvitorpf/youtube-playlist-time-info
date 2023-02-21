@@ -11,11 +11,11 @@ export const showDisplayElementOnScreen = (timeObject: TimeObject,) => {
         const unwatchedTimeSpan = playlistTimeInfoDisplay?.querySelector('span#playlist-time-info-unwatchedTime')
 
         if (timeSpan && watchedTimeSpan && unwatchedTimeSpan) {
-            timeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
+            timeSpan.textContent = `Playlist Total Time: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 
-            watchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
+            watchedTimeSpan.textContent = `Playlist Watched Time: ${String(watchedHours).padStart(2, '0')}:${String(watchedMinutes).padStart(2, '0')}:${String(watchedSeconds).padStart(2, '0')}`
 
-            unwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
+            unwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${String(unwatchedHours).padStart(2, '0')}:${String(unwatchedMinutes).padStart(2, '0')}:${String(unwatchedSeconds).padStart(2, '0')}`
         }
     } else {
         const playlistTimeInfoDisplay = generatePlaylistTimeInfoDisplay(timeObject)

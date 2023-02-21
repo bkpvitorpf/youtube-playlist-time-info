@@ -23,17 +23,17 @@ export const generatePlaylistTimeInfoDisplay = ({ hours, minutes, seconds, watch
     const timeSpan = document.createElement('span')
 
     timeSpan.id = 'playlist-time-info-time'
-    timeSpan.textContent = `Playlist Total Time: ${hours}:${minutes}:${seconds}`
+    timeSpan.textContent = `Playlist Total Time: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 
     const watchedTimeSpan = document.createElement('span')
 
     watchedTimeSpan.id = 'playlist-time-info-watchedTime'
-    watchedTimeSpan.textContent = `Playlist Watched Time: ${watchedHours}:${watchedMinutes}:${watchedSeconds}`
+    watchedTimeSpan.textContent = `Playlist Watched Time: ${String(watchedHours).padStart(2, '0')}:${String(watchedMinutes).padStart(2, '0')}:${String(watchedSeconds).padStart(2, '0')}`
 
     const unwatchedTimeSpan = document.createElement('span')
 
     unwatchedTimeSpan.id = 'playlist-time-info-unwatchedTime'
-    unwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${unwatchedHours}:${unwatchedMinutes}:${unwatchedSeconds}`
+    unwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${String(unwatchedHours).padStart(2, '0')}:${String(unwatchedMinutes).padStart(2, '0')}:${String(unwatchedSeconds).padStart(2, '0')}`
 
     divElement.appendChild(timeSpan)
     divElement.appendChild(watchedTimeSpan)
