@@ -1,9 +1,11 @@
-import { getPlaylistTimeInfo, waitElement } from "./functions";
+import { urlSubject } from "./subjects";
 
-waitElement('div#contents.style-scope ytd-playlist-video-list-renderer').then(() => {
-    const contentDiv = document.querySelector('div#contents.style-scope ytd-playlist-video-list-renderer')
+//configureExtension();
+let currentUrl = ''
 
-    if (contentDiv) {
-        new MutationObserver(getPlaylistTimeInfo).observe(contentDiv, { subtree: true, childList: true })
+setInterval(() => {
+    if (currentUrl != window.location.pathname) {
+        currentUrl = window.location.pathname
+        urlSubject.notifyAllObservers()
     }
-})
+}, 2000)

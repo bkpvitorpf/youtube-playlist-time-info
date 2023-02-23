@@ -1,10 +1,9 @@
-import { Playlist } from "../entities/playlist";
-import { Video } from "../entities/video";
-import { formatTime, getAllPlaylistVideos, getVideoInfo, TimeObject } from "./index";
-import { showDisplayElementOnScreen } from "./showDisplayElementOnScreen";
+import { Playlist } from "../entities/playlist"
+import { Video } from "../entities/video"
+import { formatTime, getAllPlaylistVideos, getVideoInfo, showDisplayElementOnScreen, TimeObject } from "./index"
 
-export const getPlaylistTimeInfo = () => {
-    const allPlaylistVideos = getAllPlaylistVideos()
+export const getPlaylistInfo = (location: string) => {
+    const allPlaylistVideos = getAllPlaylistVideos(location)
     const videos: Array<Video> = []
 
     allPlaylistVideos.forEach(video => {
@@ -29,6 +28,8 @@ export const getPlaylistTimeInfo = () => {
     const timeObject: TimeObject = {
         hours, minutes, seconds, unwatchedHours, unwatchedMinutes, unwatchedSeconds, watchedHours, watchedMinutes, watchedSeconds
     }
+
+    console.log(timeObject)
 
     showDisplayElementOnScreen(timeObject)
 }

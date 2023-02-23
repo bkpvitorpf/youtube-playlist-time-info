@@ -1,5 +1,5 @@
-import { generatePlaylistTimeInfoDisplay, TimeObject } from "./generatePlaylistTimeInfoDisplay"
-import { waitElement } from "./waitElement"
+import { generatePlaylistTimeInfoDisplay, TimeObject } from "../functions 2/generatePlaylistTimeInfoDisplay"
+import { waitElement } from "../functions 2/waitElement"
 
 export const showDisplayElementOnScreen = (timeObject: TimeObject,) => {
     if (document.querySelector('.playlist-time-info')) {
@@ -18,12 +18,12 @@ export const showDisplayElementOnScreen = (timeObject: TimeObject,) => {
             unwatchedTimeSpan.textContent = `Playlist Unwatched Time: ${String(unwatchedHours).padStart(2, '0')}:${String(unwatchedMinutes).padStart(2, '0')}:${String(unwatchedSeconds).padStart(2, '0')}`
         }
     } else {
-        const playlistTimeInfoDisplay = generatePlaylistTimeInfoDisplay(timeObject)
-
         waitElement('div.metadata-wrapper').then(() => {
             const playlistMetadataContainer = document.querySelector('div.metadata-wrapper')
 
             const playlistMetadataCollapsableElement = document.querySelector('div.metadata-action-bar')
+
+            const playlistTimeInfoDisplay = generatePlaylistTimeInfoDisplay(timeObject)
 
             playlistMetadataContainer?.insertBefore(playlistTimeInfoDisplay, playlistMetadataCollapsableElement)
         })
