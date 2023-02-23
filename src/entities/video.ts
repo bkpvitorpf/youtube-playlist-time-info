@@ -1,36 +1,66 @@
+import { formatTime } from "../functions/formatTime"
 
 export interface VideoProps {
     hours: number,
     minutes: number,
     seconds: number,
     progressPercentage: number
+    elementReference: Element
 }
 
-export class Video {
-    private props: VideoProps
-    private timeInSeconds: number
-    private watchedTimeInSeconds: number
-    private unwatchedTimeInSeconds: number
+export type VideoInstanceProps = {
+    calculateTimeInSeconds: () => number
+    calculateUnwatchedTimeInSeconds: () => number
+    calculateWatchedTimeInSeconds: () => number
+    calculatePlaybackSpeedTimeInSeconds: (time: number, videoSpeed: number) => number
+    changeTimeSpanOfHtmlElement: (timeInSeconds: number) => void
+}
 
-    constructor(props: VideoProps) {
-        this.props = props
-        this.timeInSeconds = this.calculateTimeInSeconds()
-        this.watchedTimeInSeconds = this.calculateWatchedTime()
-        this.unwatchedTimeInSeconds = this.calculateUnwatchedTime()
+export const createVideoInstance = (params: VideoProps): VideoInstanceProps => {
+    const state: VideoProps = {
+        hours: params.hours,
+        minutes: params.minutes,
+        seconds: params.seconds,
+        progressPercentage: params.progressPercentage,
+        elementReference: params.elementReference
     }
 
-    public calculateTimeInSeconds(): number {
-        const secondsFromHours = this.props.hours * 3600
-        const secondsFromMinutes = this.props.minutes * 60
+    const calculateTimeInSeconds = () => {
+        const secondsFromHours = state.hours * 3600
+        const secondsFromMinutes = state.minutes * 60
 
-        return secondsFromHours + secondsFromMinutes + this.props.seconds
+        return secondsFromHours + secondsFromMinutes + state.seconds
     }
 
-    public calculateWatchedTime() {
-        return Math.floor(this.timeInSeconds * (this.props.progressPercentage / 100))
+    const calculateWatchedTimeInSeconds = () => {
+        return Math.floor(calculateTimeInSeconds() * (state.progressPercentage / 100))
     }
 
-    public calculateUnwatchedTime() {
-        return this.timeInSeconds - this.watchedTimeInSeconds
+    const calculateUnwatchedTimeInSeconds = () => {
+        return calculateTimeInSeconds() - calculateWatchedTimeInSeconds()
+    }
+
+    const calculatePlaybackSpeedTimeInSeconds = (time: number, videoSpeed: number) => {
+        return time / videoSpeed
+    }
+
+    const changeTimeSpanOfHtmlElement = (timeInSeconds: number) => {
+        const spanElement = state.elementReference.querySelector('span#text') as Element
+
+        const { hours, minutes, seconds } = formatTime(timeInSeconds)
+
+        if (Number(hours)) {
+            spanElement.textContent = `${hours}:${minutes}:${seconds}`
+        } else {
+            spanElement.textContent = `${minutes}:${seconds}`
+        }
+    }
+
+    return {
+        calculateTimeInSeconds,
+        calculateUnwatchedTimeInSeconds,
+        calculateWatchedTimeInSeconds,
+        calculatePlaybackSpeedTimeInSeconds,
+        changeTimeSpanOfHtmlElement
     }
 }

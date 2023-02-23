@@ -1,4 +1,6 @@
-export const getAllPlaylistVideos = (location: string): Array<Element> => {
+export const getAllPlaylistVideos = (location: 'playlist' | 'watch'): Array<Element> => {
+    console.log("getting all playlist videos")
+
     const videos: Array<Element> = []
 
     const locationOptions = {
@@ -10,7 +12,7 @@ export const getAllPlaylistVideos = (location: string): Array<Element> => {
         }
     }
 
-    locationOptions[location as keyof typeof locationOptions]()
+    locationOptions[location]()
 
     return videos
 }

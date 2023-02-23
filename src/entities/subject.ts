@@ -1,9 +1,7 @@
-type Observer = {
-    run: () => any
-}
+import { ObserverType } from "./observer"
 
 type StateProps = {
-    observers: Array<Observer>
+    observers: Array<ObserverType>
 }
 
 export const Subject = () => {
@@ -11,11 +9,11 @@ export const Subject = () => {
         observers: []
     }
 
-    const subscribeObserver = (observer: Observer) => {
+    const subscribeObserver = (observer: ObserverType) => {
         state.observers.push(observer)
     }
 
-    const unsubscribeObserver = (observer: Observer) => {
+    const unsubscribeObserver = (observer: ObserverType) => {
         const observerIndex = state.observers.indexOf(observer)
 
         if (observerIndex > -1) {
@@ -23,7 +21,7 @@ export const Subject = () => {
         }
     }
 
-    const notifyObserver = (observer: Observer) => {
+    const notifyObserver = (observer: ObserverType) => {
         const observerIndex = state.observers.indexOf(observer)
 
         if (observerIndex > -1) {
