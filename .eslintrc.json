@@ -18,6 +18,7 @@
     "node_modules",
     "dist",
     "webpack.config.js",
-    "tsconfig.json"
+    "tsconfig.json",
+    "tailwind.config.js"
   ]
 }
