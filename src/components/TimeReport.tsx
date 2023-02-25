@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { usePlaylistStore } from "../stores/playlistStore"
 
 export const TimeReport: React.FC = () => {
-    const [playlistTimeObject, setPlaylistTimeObject] = useState(usePlaylistStore(state => state.timeObject))
-
-    usePlaylistStore.subscribe(state => setPlaylistTimeObject(state.timeObject))
-
-    useEffect(() => { return }, [playlistTimeObject])
+    const playlistTimeObject = usePlaylistStore(state => state.timeDetails)
 
     return (
         <>

@@ -35,7 +35,7 @@ export const getPlaylistInfo = (location: 'playlist' | 'watch') => {
     const { hours: unwatchedHours, minutes: unwatchedMinutes, seconds: unwatchedSeconds } = formatTime(playlistUnwatchedTimeInSeconds)
 
     usePlaylistStore.setState({
-        timeObject: {
+        timeDetails: {
             hours, minutes, seconds, unwatchedHours, unwatchedMinutes, unwatchedSeconds, watchedHours, watchedMinutes, watchedSeconds
         },
         videos
