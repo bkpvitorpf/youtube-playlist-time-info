@@ -4,8 +4,8 @@ import { urlSubject } from "./subjects";
 let currentUrl = ''
 
 setInterval(() => {
-    if (currentUrl != window.location.pathname) {
-        currentUrl = window.location.pathname
+    if (currentUrl != window.location.href) {
+        currentUrl = window.location.href
         urlSubject.notifyAllObservers()
     }
 }, 2000)

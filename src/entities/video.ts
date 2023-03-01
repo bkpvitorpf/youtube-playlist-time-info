@@ -6,6 +6,7 @@ export interface VideoProps {
     seconds: number,
     progressPercentage: number
     elementReference: Element
+    symbolicId: number
 }
 
 export type VideoInstanceProps = {
@@ -22,7 +23,8 @@ export const createVideoInstance = (params: VideoProps): VideoInstanceProps => {
         minutes: params.minutes,
         seconds: params.seconds,
         progressPercentage: params.progressPercentage,
-        elementReference: params.elementReference
+        elementReference: params.elementReference,
+        symbolicId: params.symbolicId
     }
 
     const calculateTimeInSeconds = () => {
@@ -45,15 +47,32 @@ export const createVideoInstance = (params: VideoProps): VideoInstanceProps => {
     }
 
     const changeTimeSpanOfHtmlElement = (timeInSeconds: number) => {
+        const spanParentElement = state.elementReference.querySelector('span#text')?.parentElement as Element
         const spanElement = state.elementReference.querySelector('span#text') as Element
+        const previousAuxiliarSpanElement = document.querySelector(`#playlist-time-info-span-${state.symbolicId}`)
+        let spanText
+
+        spanElement.setAttribute('hidden', 'true')
 
         const { hours, minutes, seconds } = formatTime(timeInSeconds)
 
         if (Number(hours)) {
-            spanElement.textContent = `${hours}:${minutes}:${seconds}`
+            spanText = `${hours}:${minutes}:${seconds}`
         } else {
-            spanElement.textContent = `${minutes}:${seconds}`
+            spanText = `${minutes}:${seconds}`
         }
+
+        const auxiliarSpanElement = document.createElement('span')
+
+        auxiliarSpanElement.id = `playlist-time-info-span-${state.symbolicId}`
+
+        auxiliarSpanElement.textContent = spanText
+
+        if (previousAuxiliarSpanElement) {
+            previousAuxiliarSpanElement.remove()
+        }
+
+        spanParentElement.appendChild(auxiliarSpanElement)
     }
 
     return {

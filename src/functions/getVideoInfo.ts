@@ -32,6 +32,5 @@ export const getVideoInfo = (video: Element): FunctionReturn => {
         minutes,
         seconds,
         progressPercentage,
-        
     }
 }

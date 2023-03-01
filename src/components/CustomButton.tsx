@@ -1,8 +1,9 @@
 import React, { ButtonHTMLAttributes } from "react";
+import { SpeedOptions } from "../functions/changePlaylistSpeed";
 
 type ButtonProps = {
-    speedValue: string
-    currentSpeed: string
+    speedValue: SpeedOptions
+    currentSpeed: SpeedOptions
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 const buttonStyles: React.CSSProperties = {
@@ -23,6 +24,6 @@ const buttonActiveStyles: React.CSSProperties = {
 
 export const CustomButton: React.FC<ButtonProps> = ({ speedValue, currentSpeed, ...props }) => {
     return (
-        <button {...props} style={currentSpeed === speedValue ? buttonActiveStyles : buttonStyles}> {speedValue}</ button>
+        <button {...props} style={currentSpeed === speedValue ? buttonActiveStyles : buttonStyles}> {speedValue === '1' ? 'Normal' : speedValue}</ button>
     )
 }

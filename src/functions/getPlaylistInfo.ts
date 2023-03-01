@@ -15,10 +15,9 @@ export const getPlaylistInfo = (location: 'playlist' | 'watch') => {
     let playlistUnwatchedTimeInSeconds = 0
 
     allPlaylistVideos.forEach(video => {
-        video.id = `playlist-time-info-${idCounter}`
         const { hours, minutes, seconds, progressPercentage } = getVideoInfo(video)
 
-        const videoInstance = createVideoInstance({ hours, minutes, seconds, progressPercentage, elementReference: video })
+        const videoInstance = createVideoInstance({ hours, minutes, seconds, progressPercentage, elementReference: video, symbolicId: idCounter })
 
         idCounter++
         playlistTimeInSeconds += videoInstance.calculateTimeInSeconds()

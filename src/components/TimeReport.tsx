@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { changePlaylistSpeed, SpeedOptions } from "../functions/changePlaylistSpeed";
 import { usePlaylistStore } from "../stores/playlistStore";
 import { CustomButton } from "./CustomButton";
 
-const speeds = ['0.25', '0.5', '0.75', 'Normal', '1.25', '1.5', '1.75', '2']
+const speeds: SpeedOptions[] = ['0.25', '0.5', '0.75', '1', '1.25', '1.5', '1.75', '2']
 
 export const TimeReport: React.FC = () => {
-    const [currentSpeed, setCurrentSpeed] = useState('Normal');
+    const [currentSpeed, setCurrentSpeed] = useState<SpeedOptions>('1');
     const playlistTimeObject = usePlaylistStore(state => state.timeDetails)
 
     return (
@@ -19,7 +20,7 @@ export const TimeReport: React.FC = () => {
                 textAlign: 'justify'
             }} className="style-scope ytd-text-inline-expander">
 
-                <p>Displaying total playlist time at speed: {currentSpeed}</p>
+                <p>Displaying total playlist time at speed: {currentSpeed == '1' ? 'Normal' : currentSpeed}</p>
 
                 <div style={{
                     display: "flex",
@@ -42,9 +43,10 @@ export const TimeReport: React.FC = () => {
                     gridTemplateColumns: 'repeat(4,1fr)',
                     gridGap: '8px'
                 }}>
-                    {speeds.map(speed => (
+                    {speeds.map((speed: SpeedOptions) => (
                         <CustomButton currentSpeed={currentSpeed} speedValue={speed} onClick={() => {
                             setCurrentSpeed(speed)
+                            changePlaylistSpeed(speed)
                         }} />
                     ))}
                 </div>
