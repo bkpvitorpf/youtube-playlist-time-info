@@ -4,10 +4,11 @@ import { calculatePlaylistTime } from "./calculatePlaylistTime"
 import { getAllPlaylistVideos } from "./getAllPlaylistVideos"
 import { getVideoInfo } from "./getVideoInfo"
 
-export const getPlaylistInfo = (location: 'playlist' | 'watch') => {
-    const allPlaylistVideos = getAllPlaylistVideos(location)
+export const getPlaylistInfo = () => {
+    const allPlaylistVideos = getAllPlaylistVideos()
 
     console.log('getting playlist info ...')
+
     let idCounter = 1
     const videos: Array<VideoInstanceProps> = []
 
@@ -23,5 +24,5 @@ export const getPlaylistInfo = (location: 'playlist' | 'watch') => {
 
     usePlaylistStore.setState({ videos })
 
-    calculatePlaylistTime('1', videos)
+    calculatePlaylistTime(usePlaylistStore.getState().currentSpeed, videos)
 }

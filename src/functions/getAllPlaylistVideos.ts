@@ -1,4 +1,6 @@
-export const getAllPlaylistVideos = (location: 'playlist' | 'watch'): Array<Element> => {
+import { useGlobalStore } from "../stores/globalStore"
+
+export const getAllPlaylistVideos = (): Array<Element> => {
     console.log("getting all playlist videos")
 
     const videos: Array<Element> = []
@@ -12,7 +14,7 @@ export const getAllPlaylistVideos = (location: 'playlist' | 'watch'): Array<Elem
         }
     }
 
-    locationOptions[location]()
+    locationOptions[useGlobalStore.getState().location]()
 
     return videos
 }

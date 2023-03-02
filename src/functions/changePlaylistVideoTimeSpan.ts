@@ -5,13 +5,11 @@ import { waitElement } from "./waitElement"
 
 export const changePlaylistVideoTimeSpan = (speed: SpeedOptions) => {
     console.log('mudando')
+
     const videos = usePlaylistStore.getState().videos
 
-    const listObserver = useGlobalStore.getState().listObserver
-    const panelObserver = useGlobalStore.getState().panelObserver
-
-    listObserver?.disconnect()
-    panelObserver?.disconnect()
+    useGlobalStore.getState().disconnectListObserver()
+    useGlobalStore.getState().disconnectPanelObserver()
 
     videos.forEach(video => {
         const videoTime = video.calculateTimeInSeconds()
@@ -23,11 +21,11 @@ export const changePlaylistVideoTimeSpan = (speed: SpeedOptions) => {
 
     if (window.location.href.includes('playlist')) {
         waitElement('div#contents.style-scope ytd-playlist-video-list-renderer').then((youTubePlaylistListRenderer) => {
-            listObserver?.observe(youTubePlaylistListRenderer, { subtree: true, childList: true })
+            useGlobalStore.getState().connectListObserver(youTubePlaylistListRenderer)
         })
     } else if (window.location.href.includes('watch')) {
         waitElement('div#below > ytd-playlist-panel-renderer > div#container > div#items').then((youTubePlaylistPanelRenderer) => {
-            panelObserver?.observe(youTubePlaylistPanelRenderer, { subtree: true, childList: true })
+            useGlobalStore.getState().connectPanelObserver(youTubePlaylistPanelRenderer)
         })
     }
 }

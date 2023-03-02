@@ -1,6 +1,5 @@
 import { VideoInstanceProps } from "../entities/video"
 import { usePlaylistStore } from "../stores/playlistStore"
-import { changePlaylistVideoTimeSpan } from "./changePlaylistVideoTimeSpan"
 import { formatTime } from "./formatTime"
 
 export type SpeedOptions = '0.25' | '0.5' | '0.75' | '1' | '1.25' | '1.5' | '1.75' | '2'
@@ -39,9 +38,6 @@ export const calculatePlaylistTime = (speed: SpeedOptions, playlistVideos: Video
     }
 
     if (timeDetails != usePlaylistStore.getState().timeDetails) {
-        console.log('entra aqui')
         usePlaylistStore.setState({ timeDetails })
     }
-
-    return timeDetails
 }

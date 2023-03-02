@@ -7,6 +7,7 @@ const ReactApp = CreateReactApp()
 
 export const urlObserver = Observer(() => {
     console.log('url changed, running observer...')
+
     showTimeReportDisplayOnScreen(ReactApp)
     getPlaylistTimeInfo()
 })

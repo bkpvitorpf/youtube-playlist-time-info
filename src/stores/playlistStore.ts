@@ -1,10 +1,11 @@
 import { create } from "zustand";
 import { VideoInstanceProps } from "../entities/video";
+import { SpeedOptions } from "../functions/calculatePlaylistTime";
 
 type StoreType = {
     videos: Array<VideoInstanceProps>,
     timeDetails: PlaylistTimeDetails,
-    updateTimeDetails: (timeDetails: PlaylistTimeDetails) => void
+    currentSpeed: SpeedOptions
 }
 
 export type PlaylistTimeDetails = {
@@ -32,5 +33,5 @@ export const usePlaylistStore = create<StoreType>((set) => ({
         unwatchedMinutes: '00',
         unwatchedSeconds: '00'
     },
-    updateTimeDetails: (timeDetails) => set({ timeDetails }),
+    currentSpeed: '1'
 }))
