@@ -1,42 +1,27 @@
 import { createVideoInstance, VideoInstanceProps } from "../entities/video"
 import { usePlaylistStore } from "../stores/playlistStore"
-import { formatTime } from "./formatTime"
+import { calculatePlaylistTime } from "./calculatePlaylistTime"
 import { getAllPlaylistVideos } from "./getAllPlaylistVideos"
 import { getVideoInfo } from "./getVideoInfo"
 
 export const getPlaylistInfo = (location: 'playlist' | 'watch') => {
-    console.log('getting playlist info ...')
-
-    let idCounter = 1
     const allPlaylistVideos = getAllPlaylistVideos(location)
+
+    console.log('getting playlist info ...')
+    let idCounter = 1
     const videos: Array<VideoInstanceProps> = []
-    let playlistTimeInSeconds = 0
-    let playlistWatchedTimeInSeconds = 0
-    let playlistUnwatchedTimeInSeconds = 0
 
     allPlaylistVideos.forEach(video => {
         const { hours, minutes, seconds, progressPercentage } = getVideoInfo(video)
 
         const videoInstance = createVideoInstance({ hours, minutes, seconds, progressPercentage, elementReference: video, symbolicId: idCounter })
 
-        idCounter++
-        playlistTimeInSeconds += videoInstance.calculateTimeInSeconds()
-        playlistWatchedTimeInSeconds += videoInstance.calculateWatchedTimeInSeconds()
-        playlistUnwatchedTimeInSeconds += videoInstance.calculateUnwatchedTimeInSeconds()
-
         videos.push(videoInstance)
+
+        idCounter++
     })
 
-    const { hours, minutes, seconds } = formatTime(playlistTimeInSeconds)
+    usePlaylistStore.setState({ videos })
 
-    const { hours: watchedHours, minutes: watchedMinutes, seconds: watchedSeconds } = formatTime(playlistWatchedTimeInSeconds)
-
-    const { hours: unwatchedHours, minutes: unwatchedMinutes, seconds: unwatchedSeconds } = formatTime(playlistUnwatchedTimeInSeconds)
-
-    usePlaylistStore.setState({
-        timeDetails: {
-            hours, minutes, seconds, unwatchedHours, unwatchedMinutes, unwatchedSeconds, watchedHours, watchedMinutes, watchedSeconds
-        },
-        videos
-    })
+    calculatePlaylistTime('1', videos)
 }

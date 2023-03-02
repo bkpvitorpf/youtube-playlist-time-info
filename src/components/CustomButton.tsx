@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { SpeedOptions } from "../functions/changePlaylistSpeed";
+import { SpeedOptions } from "../functions/calculatePlaylistTime";
 
 type ButtonProps = {
     speedValue: SpeedOptions

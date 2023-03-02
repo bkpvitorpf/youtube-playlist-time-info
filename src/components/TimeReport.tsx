@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { changePlaylistSpeed, SpeedOptions } from "../functions/changePlaylistSpeed";
+import { calculatePlaylistTime, SpeedOptions } from "../functions/calculatePlaylistTime";
+import { changePlaylistVideoTimeSpan } from "../functions/changePlaylistVideoTimeSpan";
 import { usePlaylistStore } from "../stores/playlistStore";
 import { CustomButton } from "./CustomButton";
 
@@ -7,6 +8,7 @@ const speeds: SpeedOptions[] = ['0.25', '0.5', '0.75', '1', '1.25', '1.5', '1.75
 
 export const TimeReport: React.FC = () => {
     const [currentSpeed, setCurrentSpeed] = useState<SpeedOptions>('1');
+
     const playlistTimeObject = usePlaylistStore(state => state.timeDetails)
 
     return (
@@ -46,7 +48,10 @@ export const TimeReport: React.FC = () => {
                     {speeds.map((speed: SpeedOptions) => (
                         <CustomButton currentSpeed={currentSpeed} speedValue={speed} onClick={() => {
                             setCurrentSpeed(speed)
-                            changePlaylistSpeed(speed)
+
+                            calculatePlaylistTime(speed, usePlaylistStore.getState().videos)
+
+                            changePlaylistVideoTimeSpan(speed)
                         }} />
                     ))}
                 </div>

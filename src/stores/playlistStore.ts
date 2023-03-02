@@ -4,6 +4,7 @@ import { VideoInstanceProps } from "../entities/video";
 type StoreType = {
     videos: Array<VideoInstanceProps>,
     timeDetails: PlaylistTimeDetails,
+    updateTimeDetails: (timeDetails: PlaylistTimeDetails) => void
 }
 
 export type PlaylistTimeDetails = {
@@ -18,7 +19,7 @@ export type PlaylistTimeDetails = {
     unwatchedSeconds: string
 }
 
-export const usePlaylistStore = create<StoreType>(() => ({
+export const usePlaylistStore = create<StoreType>((set) => ({
     videos: [],
     timeDetails: {
         hours: '00',
@@ -30,5 +31,6 @@ export const usePlaylistStore = create<StoreType>(() => ({
         unwatchedHours: '00',
         unwatchedMinutes: '00',
         unwatchedSeconds: '00'
-    }
+    },
+    updateTimeDetails: (timeDetails) => set({ timeDetails }),
 }))

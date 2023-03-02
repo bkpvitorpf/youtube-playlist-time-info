@@ -27,7 +27,7 @@ export const getPlaylistTimeInfo = () => {
         console.log('working on a watch page...')
 
         waitElement('div#below > ytd-playlist-panel-renderer > div#container > div#items').then((youTubePlaylistPanelRenderer) => {
-            getPlaylistInfo('watch')
+            // getPlaylistInfo('watch')
 
             const observer = useGlobalStore.getState().panelObserver
 
