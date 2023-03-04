@@ -10,7 +10,8 @@ export const getAllPlaylistVideos = (): Array<Element> => {
             document.querySelectorAll('ytd-playlist-video-renderer').forEach(element => videos.push(element))
         },
         'watch': () => {
-            document.querySelectorAll('ytd-playlist-panel-video-renderer').forEach(element => videos.push(element))
+            const playlistPanelElement = document.querySelectorAll('#container > #items')[1].parentElement as Element
+            playlistPanelElement.querySelectorAll('ytd-playlist-panel-video-renderer').forEach(element => videos.push(element))
         }
     }
 

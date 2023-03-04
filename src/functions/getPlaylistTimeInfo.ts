@@ -9,27 +9,21 @@ export const getPlaylistTimeInfo = () => {
         useGlobalStore.setState({ location: 'playlist' })
 
         waitElement('div#contents.style-scope ytd-playlist-video-list-renderer').then((youTubePlaylistListRenderer) => {
+            getPlaylistInfo()
+
             useGlobalStore.getState().connectListObserver(youTubePlaylistListRenderer)
         })
     } else if (window.location.href.includes('watch')) {
         console.log('working on a watch page...')
 
-        waitElement('div#below > ytd-playlist-panel-renderer > div#container > div#items').then((youTubePlaylistPanelRenderer) => {
-            // getPlaylistInfo('watch')
+        useGlobalStore.setState({ location: 'watch' })
 
-            const observer = useGlobalStore.getState().panelObserver
+        waitElement('div#container > div#items').then(() => {
+            getPlaylistInfo()
 
-            if (!observer) {
-                console.log('creating a panel observer...')
+            const youTubePlaylistPanelRenderer = document.querySelectorAll('div#container > div#items')[1] as Element
 
-                const panelObserver = new MutationObserver(() => getPlaylistInfo())
-
-                panelObserver.observe(youTubePlaylistPanelRenderer, { subtree: true, childList: true })
-
-                useGlobalStore.setState({
-                    panelObserver
-                })
-            }
+            useGlobalStore.getState().connectPanelObserver(youTubePlaylistPanelRenderer)
         })
     }
 }

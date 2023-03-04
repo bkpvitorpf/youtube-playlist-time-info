@@ -20,7 +20,7 @@ export type PlaylistTimeDetails = {
     unwatchedSeconds: string
 }
 
-export const usePlaylistStore = create<StoreType>((set) => ({
+export const usePlaylistStore = create<StoreType>(() => ({
     videos: [],
     timeDetails: {
         hours: '00',

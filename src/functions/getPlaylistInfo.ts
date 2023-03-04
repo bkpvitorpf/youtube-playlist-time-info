@@ -20,6 +20,10 @@ export const getPlaylistInfo = () => {
         videos.push(videoInstance)
 
         idCounter++
+
+        video.querySelectorAll('span#text').forEach(span => {
+            span.removeAttribute('hidden')
+        })
     })
 
     usePlaylistStore.setState({ videos })
