@@ -19,11 +19,17 @@ export const getPlaylistInfo = () => {
 
         videos.push(videoInstance)
 
-        idCounter++
+        //Removing custom time span
+        video.querySelectorAll(`span#playlist-time-info-span-${idCounter}`).forEach(span => {
+            span.remove()
+        })
 
+        //Removing the hidden prop of the original span to ensure that layout won't break when the user switches to a different page
         video.querySelectorAll('span#text').forEach(span => {
             span.removeAttribute('hidden')
         })
+
+        idCounter++
     })
 
     usePlaylistStore.setState({ videos })
