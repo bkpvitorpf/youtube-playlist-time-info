@@ -4,7 +4,7 @@ import { waitElement } from "./waitElement"
 
 export const getPlaylistTimeInfo = () => {
     if (window.location.href.includes('playlist')) {
-        console.log('working on a playlist page...')
+        //console.log('Working on a playlist page ...')
 
         useGlobalStore.setState({ location: 'playlist' })
 
@@ -14,7 +14,7 @@ export const getPlaylistTimeInfo = () => {
             useGlobalStore.getState().connectListObserver(youTubePlaylistListRenderer)
         })
     } else if (window.location.href.includes('watch')) {
-        console.log('working on a watch page...')
+        //console.log('Working on a watch page ...')
 
         useGlobalStore.setState({ location: 'watch' })
 

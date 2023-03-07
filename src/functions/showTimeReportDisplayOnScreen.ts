@@ -37,7 +37,6 @@ export const showTimeReportDisplayOnScreen = (App: React.DetailedReactHTMLElemen
                 playlistPanelElement.insertBefore(auxiliarDiv, listVideosElement)
 
                 waitElement('#container > #playlist-time-info-aux').then(auxiliarDivElement => {
-                    console.log('Era pra renderizar')
                     ReactDOM.render(App, auxiliarDivElement)
                 })
             }

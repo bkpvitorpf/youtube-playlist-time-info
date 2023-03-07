@@ -7,7 +7,7 @@ import { getVideoInfo } from "./getVideoInfo"
 export const getPlaylistInfo = () => {
     const allPlaylistVideos = getAllPlaylistVideos()
 
-    console.log('getting playlist info ...')
+    //console.log('Getting playlist info ...')
 
     let idCounter = 1
     const videos: Array<VideoInstanceProps> = []

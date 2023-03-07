@@ -1,7 +1,7 @@
 import { useGlobalStore } from "../stores/globalStore"
 
 export const getAllPlaylistVideos = (): Array<Element> => {
-    console.log("getting all playlist videos")
+    //console.log("Getting all playlist videos ...")
 
     const videos: Array<Element> = []
 

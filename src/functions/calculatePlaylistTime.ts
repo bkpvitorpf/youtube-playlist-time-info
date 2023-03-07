@@ -5,7 +5,7 @@ import { formatTime } from "./formatTime"
 export type SpeedOptions = '0.25' | '0.5' | '0.75' | '1' | '1.25' | '1.5' | '1.75' | '2'
 
 export const calculatePlaylistTime = (speed: SpeedOptions, playlistVideos: VideoInstanceProps[]) => {
-    console.log('Calculando o tempo da playlist....')
+    //console.log('Calculating playlist time ...')
 
     let playlistTime = 0
     let playlistWatchedTime = 0

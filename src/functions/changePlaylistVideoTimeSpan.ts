@@ -4,7 +4,7 @@ import { SpeedOptions } from "./calculatePlaylistTime"
 import { waitElement } from "./waitElement"
 
 export const changePlaylistVideoTimeSpan = (speed: SpeedOptions) => {
-    console.log('mudando')
+    //console.log('Changing video time span ...')
 
     const videos = usePlaylistStore.getState().videos
 
