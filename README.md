@@ -2,37 +2,49 @@
 
 <p>A WEB extension that show you the time stats of your YouTube playlists! Relax, we don't need your credentials.</p>
 
+<br>
+
 <p  align="center">
 
-<a  href="LICENSE.md"  target="_blank">
+  ![GitHub](https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic)
 
-<img  src="https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=blue&style=plastic" />
+  ![GitHub repo size](https://img.shields.io/github/repo-size/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic)
 
-</a>
+  ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/baiijeboainjcealpenohoogjkplopmh?color=blue&label=Chrome%20users&style=plastic)
 
-<a  href="#">
+  ![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/baiijeboainjcealpenohoogjkplopmh?color=yellow&label=Chrome%20rating)
 
-<img  src="https://img.shields.io/github/languages/code-size/vitor0p9f/youtube-playlist-time-info?style=plastic" />
+  ![Mozilla Add-on](https://img.shields.io/amo/users/youtube-playlist-time-info?label=Mozilla%20users&style=plastic)
 
-</a>
-
+  ![Mozilla Add-on](https://img.shields.io/amo/rating/youtube-playlist-time-info?color=yellow&label=Mozilla%20rating&style=plastic)
+  
 </p>
 
+<br>
+
 <p  align="center">
 
-  <img  src="extension-example.jpg" alt="Image showing the extension working in the playlist info tab"/>
-  <img  src="extension-example2.jpg" alt="Image showing the extension working while viewing a video in the playlist"/>
+  <img  src="./Example-Playlist%20Panel.png" alt="Image showing the extension working in the playlist info tab"/>
+
+  <img  src="./Example-Watch%20Panel.png" alt="Image showing the extension working while viewing a video in the playlist"/>
 
 </p>  
 
-# Tip
-  
-If the extension doesn't work once any of the playlist tabs are open, refresh the page to reload the extension. We apologize for the inconvenience, and we are working to keep the extension working without the user having to manually update it. 
+<br>
 
 # What's new
 
-* <b>Feature:</b> The extension works while viewing a playlist video.
-* <b>Update:</b> The extension is now available on the Chrome Web Store and on the Microsoft Edge Add-ons page.
+* <b>Feature:</b> The extension now lets you view the playback time of the playlist and its videos according to the selected speed, as shown in the video below:
+
+<br>
+
+<video autoplay loop muted>
+  <source src="./Example-Video.mp4" type="video/mp4"/>
+</video>
+
+<br>
+
+* <b>Update:</b> The extension automatically resets when the user switches pages.
 
 <br>
 
