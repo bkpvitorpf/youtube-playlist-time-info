@@ -24,5 +24,11 @@
   ],
   "host_permissions": [
     "*://*.youtube.com/*"
-  ]
+  ],
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "{7f174d0f-3352-43cf-b1e1-e18ca697b44c}"
+  }
+}
+
 }
