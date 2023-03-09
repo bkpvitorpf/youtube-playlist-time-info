@@ -5,19 +5,12 @@
 <br>
 
 <p  align="center">
-
-  ![GitHub](https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic)
-
-  ![GitHub repo size](https://img.shields.io/github/repo-size/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic)
-
-  ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/baiijeboainjcealpenohoogjkplopmh?color=blue&label=Chrome%20users&style=plastic)
-
-  ![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/baiijeboainjcealpenohoogjkplopmh?color=yellow&label=Chrome%20rating)
-
-  ![Mozilla Add-on](https://img.shields.io/amo/users/youtube-playlist-time-info?label=Mozilla%20users&style=plastic)
-
-  ![Mozilla Add-on](https://img.shields.io/amo/rating/youtube-playlist-time-info?color=yellow&label=Mozilla%20rating&style=plastic)
-  
+  <img src="https://img.shields.io/github/license/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic" alt="License Badge"/>
+  <img src="https://img.shields.io/github/repo-size/vitor0p9f/youtube-playlist-time-info?color=dark&style=plastic" alt="Repo Size Badge"/>
+ <img src="https://img.shields.io/chrome-web-store/users/baiijeboainjcealpenohoogjkplopmh?color=blue&label=Chrome%20users&style=plastic" alt="Chrome Users Badge"/>
+ <img src="https://img.shields.io/chrome-web-store/rating/baiijeboainjcealpenohoogjkplopmh?color=yellow&label=Chrome%20rating&style=plastic" alt="Chrome Rating Badge"/>
+ <img src="https://img.shields.io/amo/users/youtube-playlist-time-info?label=Mozilla%20users&style=plastic" alt="Mozilla Users Badge"/>
+ <img src="https://img.shields.io/amo/rating/youtube-playlist-time-info?color=yellow&label=Mozilla%20rating&style=plastic"/>
 </p>
 
 <br>
