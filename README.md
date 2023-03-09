@@ -38,9 +38,7 @@
 
 <br>
 
-<video autoplay loop muted>
-  <source src="./Example-Video.mp4" type="video/mp4"/>
-</video>
+[![Watch the video](./ExtensionExampleThumbnail.png)](https://youtu.be/juTRNImp164)
 
 <br>
 
@@ -61,6 +59,10 @@
 <hr>
 
 1. Access <a  href="https://addons.mozilla.org/pt-BR/firefox/addon/youtube-playlist-time-info/">add-ons page</a>
+2. Access <a href="https://www.youtube.com">YouTube </a>
+3. Follow the setup steps shown in the video below:
+
+[![Watch the video](./FireFoxConfigurationThumbnail.png)](https://youtu.be/OF082z5-qg4)
 
 ### Opera
 
