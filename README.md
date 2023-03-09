@@ -41,7 +41,7 @@
 
 # How to install
 
-### Chrome | Vivaldi
+### Chrome | Vivaldi | Brave
 
 <hr>
 
